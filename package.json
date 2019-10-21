@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon start.js --ignore *.json",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -12,13 +14,16 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ederaleng/steemshared-stream/issues"
   },
   "homepage": "https://github.com/ederaleng/steemshared-stream#readme",
   "dependencies": {
+    "knex": "^0.19.5",
     "lodash": "^4.17.15",
+    "nodemon": "^1.19.4",
+    "pg": "^7.12.1",
     "steem-interface": "^1.1.1",
     "uuid": "^3.3.3"
   }
