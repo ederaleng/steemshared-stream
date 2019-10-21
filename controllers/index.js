@@ -1,4 +1,4 @@
-const uuid = require('uuid')
+const uuid = require('uuid/v1')
 const _get = require('lodash/get')
 const { tryParse, jsonVerify } = require('./../utils/blockchain')
 const { Chats, Messages } = require('./../models');
@@ -35,10 +35,10 @@ async function onOperation(op, block_num, block_id, previous_block_id, transacti
 }
 
 const createNewChat = (json, transaction_id, block_num)=>{
-    Chats.create({ id: uuid(), user_1: json.from, user_2: json.to })
+    return Chats.create({ id: uuid(), user_1: json.from, user_2: json.to })
     .then(chat=>{
         let idChat = _get(chat, '[0].id', null)
-        saveMessage(idChat, json, transaction_id, block_num)
+        return saveMessage(idChat, json, transaction_id, block_num)
     })
     .catch(error=>{
         console.log(error)
@@ -54,7 +54,6 @@ const saveMessage = (id_chat, json, transaction_id, block_num)=>{
         to: json.to,
         id_chat: id_chat
     }).then(result=>{
-        console.log(result)
         return result;
     })
 }
