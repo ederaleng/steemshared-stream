@@ -7,7 +7,7 @@ module.exports = {
         }
         return false
     },
-    tryParse(json){
+    try_parse(json){
         let json_to_return = null
         try {
             json_to_return = JSON.parse(json)
