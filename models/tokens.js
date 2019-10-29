@@ -6,8 +6,8 @@ const name = 'Tokens'
 const tableName = 'tokens'
 
 const selectableProps = [
-  'token_private',
-  'token_public',
+  'private_token',
+  'public_token',
   'username',
   'trx_id',
   'updated_at',
@@ -22,7 +22,16 @@ module.exports = knex => {
     selectableProps
   })
 
+  const UpdateTokens = (token_id, data)=>{
+    return knex.update(data)
+      .from(tableName)
+      .where({ public_token: token_id })
+      .timeout(1000)
+  }
+
+
   return {
-    ...guts
+    ...guts,
+    UpdateTokens
   }
 }

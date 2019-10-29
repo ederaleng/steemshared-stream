@@ -1,8 +1,8 @@
 exports.up = knex => {
   return knex.schema.createTable('tokens', t => {
     t.increments('id').primary()
-    t.string('token_private')
-    t.string('token_public')
+    t.string('private_token')
+    t.string('public_token')
     t.string('username')
     t.boolean('active').defaultTo(false)
     t.string('trx_id')
