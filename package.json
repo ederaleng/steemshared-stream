@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/ederaleng/steemshared-stream#readme",
   "dependencies": {
-    "knex": "^0.19.5",
+    "knex": "^2.4.0",
     "lodash": "^4.17.15",
     "nodemon": "^1.19.4",
     "pg": "^7.12.1",
